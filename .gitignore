@@ -2,7 +2,9 @@ node_modules/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+.idea
 *.iml
 *.xml
 *.env
 *.log
+tests/example.spec.ts
