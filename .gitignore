@@ -7,4 +7,3 @@ node_modules/
 *.xml
 *.env
 *.log
-tests/example.spec.ts
