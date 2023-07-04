@@ -25,7 +25,7 @@ test('movieDB ui tests with POM', async({page}) => {
     await searchResultPage.nthItemsTitleToBe(1,'Matrix')
 })
 
-test.only('movieDB ui tests with fixtures', async ({homePage, searchResultPage}) => {
+test('movieDB ui tests with fixtures', async ({homePage, searchResultPage}) => {
     await homePage.goto();
     await homePage.waitForPageLoad();
     await homePage.searchForTerm('Matrix');
