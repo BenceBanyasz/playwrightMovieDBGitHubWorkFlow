@@ -6,6 +6,7 @@ phases:
   pre_build:
     commands:
       - npm install
+      - npx playwright install
   build:
     commands:
       - npm run test:ui
