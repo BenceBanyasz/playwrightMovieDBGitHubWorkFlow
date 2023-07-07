@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:ui": "npx playwright test ui-tests.spec.ts"
+    "test:ui:headless": "npx playwright test ui-tests.spec.ts",
+    "test:ui": "npx playwright test ui-tests.spec.ts --headed"
   },
   "author": "Bence Banyasz",
   "license": "ISC",

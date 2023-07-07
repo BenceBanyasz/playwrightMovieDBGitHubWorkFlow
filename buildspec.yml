@@ -10,4 +10,4 @@ phases:
       - npx playwright install-deps chromium
   build:
     commands:
-      - npm run test:ui
+      - npm run test:ui:headless
