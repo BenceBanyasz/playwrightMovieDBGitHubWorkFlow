@@ -6,7 +6,8 @@ phases:
   pre_build:
     commands:
       - npm install
-      - npx playwright install
+      - npx playwright install chromium
+      - npx playwright install-deps chromium
   build:
     commands:
       - npm run test:ui
