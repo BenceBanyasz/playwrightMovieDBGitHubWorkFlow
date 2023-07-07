@@ -29,6 +29,6 @@ test('movieDB ui tests with fixtures', async ({homePage, searchResultPage}) => {
     await homePage.goto();
     await homePage.waitForPageLoad();
     await homePage.searchForTerm('Matrix');
-    await searchResultPage.nthItemsTitleToBe(1,'Matrixxx');
+    await searchResultPage.nthItemsTitleToBe(1,'Matrix');
     await sleep(5000)
 })

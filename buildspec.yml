@@ -6,8 +6,10 @@ phases:
   pre_build:
     commands:
       - npm install
-      - npx playwright install chromium
-      - npx playwright install-deps chromium
+      - npx playwright install --with-deps chromium
   build:
     commands:
       - npm run test:ui:headless
+  post_build:
+      commands:
+        - echo Build completed on `date`
