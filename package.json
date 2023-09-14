@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npx tsc",
     "test:ui:headless": "npx playwright test ui-tests.spec.ts",
-    "test:ui": "npx playwright test ui-tests.spec.ts --headed"
+    "test:ui": "npx playwright test ui-tests.spec.ts --headed",
+    "test:ui:trace": "npx playwright test ui-tests.spec.ts --headed --trace on"
   },
   "author": "Bence Banyasz",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.35.1"
+    "@playwright/test": "^1.35.1",
+    "dotenv": "^16.3.1",
+    "typescript": "^5.2.2"
   }
 }

@@ -1,0 +1,5 @@
+{
+  "userNameField": "input#username",
+  "passwordField": "input#password",
+  "loginButton": "input#login_button"
+}

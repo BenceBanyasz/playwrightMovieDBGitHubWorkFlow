@@ -1,6 +1,4 @@
 {
-  "headerLogo": ".logo img",
-  "loginButton": "li a[href='/login']",
   "searchBar": "#inner_search_v4",
   "searchButton": "#inner_search_form input[type='submit']"
 }

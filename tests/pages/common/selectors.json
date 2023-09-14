@@ -1,0 +1,5 @@
+{
+  "headerLogo": ".logo img",
+  "toLoginPage": "li a[href='/login']",
+  "userInfoButton": ".user a[href]"
+}
