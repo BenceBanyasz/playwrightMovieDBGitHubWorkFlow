@@ -4,6 +4,10 @@ env:
   secrets-manager:
     SECRET_VALUE: "arn:aws:secretsmanager:eu-north-1:115049195310:secret:aws-secrets-moviedb-gUgN5c"
 phases:
+  artifacts:
+    type: CodePipeline
+    name: MovieDBArtifact
+    packaging: NONE
   install:
     runtime-versions:
       nodejs: 18
