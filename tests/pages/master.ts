@@ -15,19 +15,19 @@ export class Master {
         this.userInfoButton = page.locator(selectors.userInfoButton);
     }
 
-    async gotoMainPage() {
+    async gotoMainPage(): Promise<void> {
         await this.page.goto(urls.homePage);
     }
 
-    async headerLogoToBeVisible() {
+    async headerLogoToBeVisible(): Promise<void> {
         await expect(this.headerLogo).toBeVisible();
     }
 
-    async toLoginPageToBeVisible() {
+    async toLoginPageToBeVisible(): Promise<void> {
         await expect(this.toLoginPage).toBeVisible();
     }
 
-    async userInfoButtonToBeVisible() {
+    async userInfoButtonToBeVisible(): Promise<void> {
         await expect(this.userInfoButton).toBeVisible();
     }
 }

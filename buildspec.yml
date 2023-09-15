@@ -1,4 +1,8 @@
 version: 0.2
+
+env:
+  secrets-manager:
+    SECRET_VALUE: "arn:aws:secretsmanager:eu-north-1:115049195310:secret:aws-secrets-moviedb-gUgN5c"
 phases:
   install:
     runtime-versions:
@@ -9,6 +13,7 @@ phases:
       - npx playwright install --with-deps chromium
   build:
     commands:
+      - echo $SECRET_VALUE
       - npm run test:ui:headless
   post_build:
       commands:

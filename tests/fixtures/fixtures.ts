@@ -1,9 +1,9 @@
-require('dotenv').config();
 import {test as base} from '@playwright/test';
 import {HomePage} from '../pages/home-page/home-page';
 import {SearchResultPage} from '../pages/search-result-list/search-result-page';
 import {Authentication} from '../pages/login-page/login-page';
 import urls from '../data/urls.json'
+import {getSecrets} from '../retrieve-aws-creds';
 
 export const test = base.extend<{
     homePage: HomePage;
@@ -17,9 +17,9 @@ export const test = base.extend<{
         await use(new SearchResultPage(page));
     },
     authentication: async({page}, use) => {
-        const username = process.env.MOVIEDB_USERNAME;
-        const password = process.env.MOVIEDB_PASSWORD;
-        const loginUrl = urls.loginPage;
+        const username: string = (await getSecrets()).username;
+        const password: string = (await getSecrets()).password;
+        const loginUrl: string = urls.loginPage;
         await use(new Authentication(page, username, password, loginUrl));
     }
 })

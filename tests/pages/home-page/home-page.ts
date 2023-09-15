@@ -14,15 +14,15 @@ export class HomePage extends Master {
         this.searchButton = page.locator(selectors.searchButton);
     }
 
-    async fillSearchBar(text: string) {
+    async fillSearchBar(text: string): Promise<void> {
         await this.searchBar.fill(text);
     }
 
-    async clickSearchButton() {
+    async clickSearchButton(): Promise<void> {
         await this.searchButton.click();
     }
 
-    async searchForTerm(text: string) {
+    async searchForTerm(text: string): Promise<void> {
         await this.fillSearchBar(text);
         await this.clickSearchButton();
     }

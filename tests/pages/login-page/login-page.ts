@@ -2,7 +2,7 @@ import {Locator, Page} from "@playwright/test";
 import selectors from "./selectors.json";
 import {Master} from '../master';
 
-export class Authentication extends Master{
+export class Authentication extends Master {
     readonly page: Page;
     readonly userNameField: Locator;
     readonly passwordField: Locator;
@@ -16,7 +16,7 @@ export class Authentication extends Master{
         this.loginButton = page.locator(selectors.loginButton);
     }
 
-    async login() {
+    async login(): Promise<void> {
         if (!this.page) {
             throw new Error('Page is not initialized.');
         }
