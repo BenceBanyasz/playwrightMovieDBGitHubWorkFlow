@@ -10,9 +10,6 @@ export const handler = async () => {
         // Calling SecretsManager
         const getSecretValueResponse = await client.getSecretValue({SecretId: secretName}).promise();
 
-        // Raw Response
-        console.log(getSecretValueResponse);
-
         // Extracting the key/value from the secret
         const secret = JSON.parse(<string>getSecretValueResponse.SecretString);
 
