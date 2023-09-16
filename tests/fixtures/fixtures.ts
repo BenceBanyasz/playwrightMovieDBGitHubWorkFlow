@@ -3,7 +3,7 @@ import {HomePage} from '../pages/home-page/home-page';
 import {SearchResultPage} from '../pages/search-result-list/search-result-page';
 import {Authentication} from '../pages/login-page/login-page';
 import urls from '../data/urls.json'
-//import {getSecrets} from '../retrieve-aws-creds';
+/*import {getSecrets} from '../retrieve-aws-creds';*/
 import {handler} from '../retrieve-aws-creds-ci';
 
 export const test = base.extend<{
