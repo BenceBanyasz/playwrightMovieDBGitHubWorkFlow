@@ -3,7 +3,8 @@ import {HomePage} from '../pages/home-page/home-page';
 import {SearchResultPage} from '../pages/search-result-list/search-result-page';
 import {Authentication} from '../pages/login-page/login-page';
 import urls from '../data/urls.json'
-import {getSecrets} from '../retrieve-aws-creds';
+//import {getSecrets} from '../retrieve-aws-creds';
+import {handler} from '../retrieve-aws-creds-ci';
 
 export const test = base.extend<{
     homePage: HomePage;
@@ -17,8 +18,8 @@ export const test = base.extend<{
         await use(new SearchResultPage(page));
     },
     authentication: async({page}, use) => {
-        const username: string = (await getSecrets()).username;
-        const password: string = (await getSecrets()).password;
+        const username: string = (await handler()).username;
+        const password: string = (await handler()).password;
         const loginUrl: string = urls.loginPage;
         await use(new Authentication(page, username, password, loginUrl));
     }

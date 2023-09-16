@@ -1,8 +1,6 @@
 version: 0.2
 
 env:
-  secrets-manager:
-    SECRET_VALUE: "arn:aws:secretsmanager:eu-north-1:115049195310:secret:aws-secrets-moviedb-gUgN5c"
 phases:
   install:
     runtime-versions:
@@ -18,8 +16,3 @@ phases:
   post_build:
       commands:
         - echo Build completed on `date`
-
-artifacts:
-  type: CodePipeline
-  name: MovieDBArtifact
-  packaging: NONE
