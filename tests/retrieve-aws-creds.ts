@@ -1,10 +1,10 @@
-require('dotenv').config();
-import * as AWS from 'aws-sdk';
-
+// require('dotenv').config();
+// import * as AWS from 'aws-sdk';
+//
 // AWS.config.update({
-//     accessKeyId: process.env.AWS_ACCESS_KEY,
+//     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
 //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-//     region: 'eu-north-1'
+//     region: process.env.AWS_DEFAULT_REGION
 // });
 //
 // //Initialize client for AWS Secrets Manager
