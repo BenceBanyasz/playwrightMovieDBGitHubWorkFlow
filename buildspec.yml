@@ -10,7 +10,6 @@ phases:
       - npx playwright install --with-deps chromium
   build:
     commands:
-      - echo $SECRET_VALUE
       - npm run test
   post_build:
       commands:
