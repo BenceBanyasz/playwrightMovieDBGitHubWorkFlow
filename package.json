@@ -7,7 +7,9 @@
     "build": "npx tsc",
     "test:ui:headless": "npx playwright test ui-tests.spec.ts",
     "test:ui": "npx playwright test ui-tests.spec.ts --headed",
-    "test:ui:trace": "npx playwright test ui-tests.spec.ts --headed --trace on"
+    "test:ui:trace": "npx playwright test ui-tests.spec.ts --headed --trace on",
+    "test:api": "npx playwright test api-tests.spec.ts",
+    "test": "npx playwright test"
   },
   "author": "Bence Banyasz",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "@playwright/test": "^1.35.1",
     "aws-sdk": "^2.1458.0",
     "dotenv": "^16.3.1",
+    "http-status-codes": "^2.2.0",
     "typescript": "^5.2.2"
   }
 }

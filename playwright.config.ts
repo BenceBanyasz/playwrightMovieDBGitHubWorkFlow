@@ -22,7 +22,7 @@ export default defineConfig({
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: 'html',
     //Number of retries upon failing tests
-    retries: 1,
+    retries: 2,
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         headless: true,

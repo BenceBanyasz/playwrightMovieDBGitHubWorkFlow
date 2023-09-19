@@ -1,4 +1,4 @@
-import {test} from './fixtures/fixtures';
+import {test} from '../fixtures/fixtures';
 import labels from './data/labels.json'
 
 test.describe('unauthenticated UI tests for movieDB', () => {

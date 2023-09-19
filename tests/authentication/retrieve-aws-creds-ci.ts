@@ -1,5 +1,4 @@
 require('dotenv').config();
-import {SecretsManager} from 'aws-sdk';
 import * as AWS from 'aws-sdk';
 
 AWS.config.update({
@@ -11,9 +10,9 @@ AWS.config.update({
 const secretName = "aws-secrets-moviedb";
 const regionName = "eu-north-1";
 
-const client = new SecretsManager({region: regionName});
+const client = new AWS.SecretsManager({region: regionName});
 
-export const handler = async () => {
+export const getSecrets = async () => {
     try {
         // Calling SecretsManager
         const getSecretValueResponse = await client.getSecretValue({SecretId: secretName}).promise();
@@ -25,7 +24,8 @@ export const handler = async () => {
             statusCode: 200,
             body: JSON.stringify('Secret retrieved successfully'),
             username: secret.MOVIEDB_USERNAME,
-            password: secret.MOVIEDB_PASSWORD
+            password: secret.MOVIEDB_PASSWORD,
+            moviedbaccesstoken: secret.MOVIEDB_ACCESS_TOKEN,
         };
     } catch (error) {
         console.error('Error retrieving secret:', error);
