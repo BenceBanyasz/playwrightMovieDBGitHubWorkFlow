@@ -84,7 +84,7 @@ test.describe("MovieDB api tests", () => {
 });
 
 test.describe("reqres API tests for unauthenticated test cases", () => {
-    test.only("the list users request should work properly", async () => {
+    test("the list users request should work properly", async () => {
         let response: APIResponse;
         let responseBody: UsersList;
         let usersList: UsersList["data"];
