@@ -22,7 +22,6 @@ export const getSecrets = async () => {
 
         return {
             statusCode: 200,
-            body: JSON.stringify('Secret retrieved successfully'),
             username: secret.MOVIEDB_USERNAME,
             password: secret.MOVIEDB_PASSWORD,
             moviedbaccesstoken: secret.MOVIEDB_ACCESS_TOKEN,
