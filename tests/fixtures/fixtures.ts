@@ -28,11 +28,11 @@ export const test = base.extend<MyFixtures>({
         await use(new Authentication(page, username, password, loginUrl));
     },
     requestContext: async ({},use) => {
-        const moviedbaccesstoken: string = (await getSecrets()).moviedbaccesstoken;
+        const moviedbAccessToken: string = (await getSecrets()).moviedbaccesstoken;
         const requestContext: APIRequestContext = await request.newContext({
             baseURL: 'https://api.themoviedb.org',
             extraHTTPHeaders: {
-                Authorization: `Bearer ${moviedbaccesstoken}`,
+                Authorization: `Bearer ${moviedbAccessToken}`,
             },
         });
 

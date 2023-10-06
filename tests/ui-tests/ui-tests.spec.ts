@@ -1,5 +1,5 @@
 import {test} from '../fixtures/fixtures';
-import labels from './data/labels.json'
+import labels from './data/labels.json';
 
 test.describe('unauthenticated UI tests for movieDB', () => {
     test.beforeEach(async ({homePage}) => {
@@ -7,7 +7,7 @@ test.describe('unauthenticated UI tests for movieDB', () => {
     });
 
     test('movieDB user scenario tests with fixtures', async ({homePage, searchResultPage}) => {
-        await homePage.searchForTerm('Matrix');
+        await homePage.searchForTerm(labels.matrix);
         await searchResultPage.nthItemsTitleToBe(1, labels.matrix);
     });
 
