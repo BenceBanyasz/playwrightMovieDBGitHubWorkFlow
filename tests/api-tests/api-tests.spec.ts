@@ -16,6 +16,9 @@ import type {
 import * as labels from "./data/labels.json";
 
 test.describe("MovieDB api tests", () => {
+    let response: APIResponse;
+    let request: APIResponse;
+
     test("GET Details", async ({ requestContext }) => {
         let response: APIResponse;
 
@@ -34,13 +37,18 @@ test.describe("MovieDB api tests", () => {
         });
     });
 
-    test("POST Rating", async ({ requestContext }) => {
-        let response: APIResponse;
-
+    test("POST Rating and DELETE Rating", async ({ requestContext }) => {
         await test.step("send POST request to add rating to Matrix", async () => {
-            await requestContext.post(`/3/movie/${labels.movieId}/rating`, {
-                data: { value: labels.rating },
-            });
+            request = await requestContext.post(
+                `/3/movie/${labels.movieId}/rating`,
+                {
+                    data: { value: labels.rating },
+                }
+            );
+        });
+
+        await test.step("post rating request should return with OK status code", async () => {
+            expect(request.status()).toEqual(StatusCodes.CREATED);
         });
 
         await test.step("send GET request to return rated movies", async () => {
@@ -49,7 +57,7 @@ test.describe("MovieDB api tests", () => {
             );
         });
 
-        await test.step("movie with id 555879 should have correct rating", async () => {
+        await test.step(`movie with id ${labels.movieId} should have correct rating`, async () => {
             const responseBody: PostRating = await response.json();
             const resultsForRatings = responseBody.results;
             const ratingForMatrix = resultsForRatings.find(
@@ -57,13 +65,15 @@ test.describe("MovieDB api tests", () => {
             );
             expect(ratingForMatrix.rating).toEqual(labels.rating);
         });
-    });
-
-    test("DELETE Rating", async ({ requestContext }) => {
-        let response: APIResponse;
 
         await test.step("send DELETE request to remove rating from Matrix", async () => {
-            await requestContext.delete(`/3/movie/${labels.movieId}/rating`);
+            request = await requestContext.delete(
+                `/3/movie/${labels.movieId}/rating`
+            );
+        });
+
+        await test.step("delete rating request should return with OK status code", async () => {
+            expect(request.status()).toEqual(StatusCodes.OK);
         });
 
         await test.step("send GET request to return rated movies", async () => {
@@ -72,7 +82,7 @@ test.describe("MovieDB api tests", () => {
             );
         });
 
-        await test.step("movie with id 555879 should not be present in list of rated movies", async () => {
+        await test.step(`movie with id ${labels.movieId} should not be present in list of rated movies`, async () => {
             const responseBody: DeleteRating = await response.json();
             const resultsForRatings = responseBody.results;
             const ratingForMatrix = resultsForRatings.find(

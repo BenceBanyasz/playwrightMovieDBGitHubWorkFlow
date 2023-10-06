@@ -22,13 +22,12 @@ export const test = base.extend<MyFixtures>({
         await use(new SearchResultPage(page));
     },
     authentication: async ({page}, use) => {
-        const username: string = (await getSecrets()).username;
-        const password: string = (await getSecrets()).password;
+        const {username, password} = await getSecrets();
         const loginUrl: string = urls.loginPage;
         await use(new Authentication(page, username, password, loginUrl));
     },
     requestContext: async ({},use) => {
-        const moviedbAccessToken: string = (await getSecrets()).moviedbaccesstoken;
+        const moviedbAccessToken: string = (await getSecrets()).moviedb_access_token;
         const requestContext: APIRequestContext = await request.newContext({
             baseURL: 'https://api.themoviedb.org',
             extraHTTPHeaders: {

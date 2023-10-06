@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test';
 import {test} from '../fixtures/fixtures';
 import labels from './data/labels.json';
 
@@ -6,9 +7,10 @@ test.describe('unauthenticated UI tests for movieDB', () => {
         await homePage.gotoMainPage();
     });
 
-    test('movieDB user scenario tests with fixtures', async ({homePage, searchResultPage}) => {
+    test(`executed search should have the title "${labels.matrix}"`, async ({homePage, searchResultPage}) => {
         await homePage.searchForTerm(labels.matrix);
-        await searchResultPage.nthItemsTitleToBe(1, labels.matrix);
+        const nthItem = await searchResultPage.nthItem(1);
+        expect(nthItem).toHaveText(labels.matrix);
     });
 
     test('movieDB logo and login button should be visible in header', async ({homePage}) => {
@@ -23,9 +25,10 @@ test.describe('authenticated UI tests for movieDB', () => {
         await homePage.gotoMainPage();
     });
 
-    test('movieDB user scenario tests with fixtures', async ({homePage, searchResultPage}) => {
+    test(`executed search should have the title "${labels.matrix}"`, async ({homePage, searchResultPage}) => {
         await homePage.searchForTerm(labels.matrix);
-        await searchResultPage.nthItemsTitleToBe(1, labels.matrix);
+        const nthItem = await searchResultPage.nthItem(1);
+        expect(nthItem).toHaveText(labels.matrix);
     });
 
     test('movieDB logo and userinfo button should be visible in header', async ({homePage}) => {

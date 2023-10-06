@@ -21,10 +21,9 @@ export const getSecrets = async () => {
         const secret = JSON.parse(<string>getSecretValueResponse.SecretString);
 
         return {
-            statusCode: 200,
             username: secret.MOVIEDB_USERNAME,
             password: secret.MOVIEDB_PASSWORD,
-            moviedbaccesstoken: secret.MOVIEDB_ACCESS_TOKEN,
+            moviedb_access_token: secret.MOVIEDB_ACCESS_TOKEN,
         };
     } catch (error) {
         console.error('Error retrieving secret:', error);
