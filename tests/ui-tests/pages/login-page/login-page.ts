@@ -28,7 +28,7 @@ export class Authentication extends Master {
             await this.loginButton.click();
             await this.page.waitForURL(`**/${this.username}`, {waitUntil: 'domcontentloaded'});
 
-            if (this.page.url() === `https://www.themoviedb.org/u/${this.username}`) {
+            if(await this.userInfoButtonToBeVisible){
                 console.log('Authentication was successful.');
             } else {
                 console.error('Authentication failed.');

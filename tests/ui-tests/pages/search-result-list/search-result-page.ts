@@ -12,7 +12,6 @@ export class SearchResultPage extends Master {
         this.SearchResultItems = page.locator(selectors.searchResultItems);
     }
 
-
     async nthItem(nth: number){
         return await (this.SearchResultItems).locator(`nth=${nth}`);
     }
