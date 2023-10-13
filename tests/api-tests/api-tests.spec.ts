@@ -6,7 +6,6 @@ import {
 } from "@playwright/test";
 import { test } from "../fixtures/fixtures";
 import { StatusCodes } from "http-status-codes";
-import { getSecrets } from "../authentication/retrieve-aws-creds-ci";
 import type {
     DeleteRating,
     PostRating,
@@ -31,7 +30,7 @@ test.describe("MovieDB api tests", () => {
         });
 
         await test.step("should have the correct username", async () => {
-            const username = (await getSecrets()).username;
+            const username = process.env.MOVIEDB_USERNAME;
             const responseBody: UserProfile = await response.json();
             expect(responseBody.username).toEqual(username);
         });

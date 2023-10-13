@@ -1,4 +1,5 @@
 {
   "loginPage": "https://www.themoviedb.org/login",
-  "homePage": "https://www.themoviedb.org/"
+  "homePage": "https://www.themoviedb.org/",
+  "apiUrl": "https://api.themoviedb.org"
 }
