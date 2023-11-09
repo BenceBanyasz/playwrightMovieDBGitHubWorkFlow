@@ -14,3 +14,8 @@ phases:
   post_build:
       commands:
         - echo Build completed on `date`
+
+artifacts:
+  files:
+    - 'playwright-report/index.html'
+  name: playwright_moviedb_artifacts-$(date +%Y-%m-%d)
