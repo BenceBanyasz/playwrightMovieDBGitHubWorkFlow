@@ -12,12 +12,18 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building and running tests
-      - npm test || exit 1
+      - npm test
   post_build:
       commands:
-        - echo Build completed on `date`
+        - if [ $? -ne 0 ]; then
+          echo "Tests failed. Failing the build."
+          exit 1
+        else
+          echo "Tests passed. Build successful."
+        fi
 
-artifacts:
-  files:
-    - 'playwright-report/index.html'
-  name: playwright_moviedb_artifacts-$(date +%Y-%m-%d)
+reports:
+  test-report:
+    files:
+      - "**/results.xml"
+    file-format: "JUNITXML" 
