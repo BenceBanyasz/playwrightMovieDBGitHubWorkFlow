@@ -10,7 +10,9 @@ phases:
       - npx playwright install --with-deps chromium
   build:
     commands:
-      - npm run test
+      - echo Build started on `date`
+      - echo Building and running tests
+      - npm test || exit 1
   post_build:
       commands:
         - echo Build completed on `date`
