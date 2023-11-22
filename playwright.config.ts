@@ -24,7 +24,6 @@ export default defineConfig({
     //Number of retries upon failing tests
     retries: 2,
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-    globalSetup: require.resolve('./global-setup'),
     use: {
         headless: true,
         /* Base URL to use in actions like `await page.goto('/')`. */
